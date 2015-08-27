@@ -29,6 +29,7 @@ import com.microsoft.windowsazure.core.LazyHashMap;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 /**
 * The parameters supplied Update Configuration Web Site operation.
@@ -595,7 +596,17 @@ public class WebSiteUpdateConfigurationParameters {
     public void setWebSocketsEnabled(final Boolean webSocketsEnabledValue) {
         this.webSocketsEnabled = webSocketsEnabledValue;
     }
-    
+
+    private List<VirtualApplication> virtualApplications;
+
+    public List<VirtualApplication> getVirtualApplications() {
+        return virtualApplications;
+    }
+
+    public void setVirtualApplications(List<VirtualApplication> virtualApplications) {
+        this.virtualApplications = virtualApplications;
+    }
+
     /**
     * Initializes a new instance of the WebSiteUpdateConfigurationParameters
     * class.
@@ -795,6 +806,45 @@ public class WebSiteUpdateConfigurationParameters {
         */
         public void setMaxPercentageCpu(final Double maxPercentageCpuValue) {
             this.maxPercentageCpu = maxPercentageCpuValue;
+        }
+    }
+
+    public static class VirtualApplication {
+        private String virtualPath;
+        private String virtualDirectory;
+        private String physicalPath;
+        private boolean preloadEnabled;
+
+        public String getVirtualPath() {
+            return virtualPath;
+        }
+
+        public void setVirtualPath(String virtualPath) {
+            this.virtualPath = virtualPath;
+        }
+
+        public String getVirtualDirectory() {
+            return virtualDirectory;
+        }
+
+        public void setVirtualDirectory(String virtualDirectory) {
+            this.virtualDirectory = virtualDirectory;
+        }
+
+        public String getPhysicalPath() {
+            return physicalPath;
+        }
+
+        public void setPhysicalPath(String physicalPath) {
+            this.physicalPath = physicalPath;
+        }
+
+        public boolean isPreloadEnabled() {
+            return preloadEnabled;
+        }
+
+        public void setPreloadEnabled(boolean preloadEnabled) {
+            this.preloadEnabled = preloadEnabled;
         }
     }
 }

@@ -7408,7 +7408,35 @@ public class WebSiteOperationsImpl implements ServiceOperations<WebSiteManagemen
                 ((ObjectNode) limitsValue).put("maxDiskSizeInMb", parameters.getLimits().getMaxDiskSizeInMb());
             }
         }
-        
+
+        if (parameters.getAppSettings() != null) {
+            if (parameters.getAppSettings() instanceof LazyCollection == false || ((LazyCollection) parameters.getAppSettings()).isInitialized()) {
+                ArrayNode appSettingsDictionary = objectMapper.createArrayNode();
+                for (Map.Entry<String, String> entry : parameters.getAppSettings().entrySet()) {
+                    String appSettingsKey = entry.getKey();
+                    String appSettingsValue = entry.getValue();
+                    ObjectNode appSettingsItemObject = objectMapper.createObjectNode();
+                    ((ObjectNode) appSettingsItemObject).put("Name", appSettingsKey);
+                    ((ObjectNode) appSettingsItemObject).put("Value", appSettingsValue);
+                    appSettingsDictionary.add(appSettingsItemObject);
+                }
+                ((ObjectNode) webSiteUpdateConfigurationParametersValue).put("AppSettings", appSettingsDictionary);
+            }
+        }
+
+        if (parameters.getVirtualApplications() != null) {
+            ArrayNode virtualApplicationsValue = objectMapper.createArrayNode();
+            for (WebSiteUpdateConfigurationParameters.VirtualApplication virtualApplication : parameters.getVirtualApplications()) {
+                ObjectNode virtualApplicationObject = objectMapper.createObjectNode();
+                virtualApplicationObject.put("PhysicalPath", virtualApplication.getPhysicalPath());
+                virtualApplicationObject.put("PreloadEnabled", virtualApplication.isPreloadEnabled());
+                virtualApplicationObject.put("VirtualDirectories", virtualApplication.getVirtualDirectory());
+                virtualApplicationObject.put("VirtualPath", virtualApplication.getVirtualPath());
+                virtualApplicationsValue.add(virtualApplicationObject);
+            }
+            webSiteUpdateConfigurationParametersValue.put("VirtualApplications", virtualApplicationsValue);
+        }
+
         StringWriter stringWriter = new StringWriter();
         objectMapper.writeValue(stringWriter, requestDoc);
         requestContent = stringWriter.toString();
