@@ -4478,89 +4478,89 @@ public class WebSiteOperationsImpl implements ServiceOperations<WebSiteManagemen
                             WebSiteGetPublishProfileResponse.PublishProfile publishProfileInstance = new WebSiteGetPublishProfileResponse.PublishProfile();
                             result.getPublishProfiles().add(publishProfileInstance);
                             
-                            Attr profileNameAttribute = publishProfilesElement.getAttributeNodeNS("", "profileName");
+                            Attr profileNameAttribute = publishProfilesElement.getAttributeNodeNS(null, "profileName");
                             if (profileNameAttribute != null) {
                                 publishProfileInstance.setProfileName(profileNameAttribute.getValue());
                             }
                             
-                            Attr publishMethodAttribute = publishProfilesElement.getAttributeNodeNS("", "publishMethod");
+                            Attr publishMethodAttribute = publishProfilesElement.getAttributeNodeNS(null, "publishMethod");
                             if (publishMethodAttribute != null) {
                                 publishProfileInstance.setPublishMethod(publishMethodAttribute.getValue());
                             }
                             
-                            Attr publishUrlAttribute = publishProfilesElement.getAttributeNodeNS("", "publishUrl");
+                            Attr publishUrlAttribute = publishProfilesElement.getAttributeNodeNS(null, "publishUrl");
                             if (publishUrlAttribute != null) {
                                 publishProfileInstance.setPublishUrl(publishUrlAttribute.getValue());
                             }
                             
-                            Attr msdeploySiteAttribute = publishProfilesElement.getAttributeNodeNS("", "msdeploySite");
+                            Attr msdeploySiteAttribute = publishProfilesElement.getAttributeNodeNS(null, "msdeploySite");
                             if (msdeploySiteAttribute != null) {
                                 publishProfileInstance.setMSDeploySite(msdeploySiteAttribute.getValue());
                             }
                             
-                            Attr ftpPassiveModeAttribute = publishProfilesElement.getAttributeNodeNS("", "ftpPassiveMode");
+                            Attr ftpPassiveModeAttribute = publishProfilesElement.getAttributeNodeNS(null, "ftpPassiveMode");
                             if (ftpPassiveModeAttribute != null) {
                                 publishProfileInstance.setFtpPassiveMode(DatatypeConverter.parseBoolean(ftpPassiveModeAttribute.getValue().toLowerCase()));
                             }
                             
-                            Attr userNameAttribute = publishProfilesElement.getAttributeNodeNS("", "userName");
+                            Attr userNameAttribute = publishProfilesElement.getAttributeNodeNS(null, "userName");
                             if (userNameAttribute != null) {
                                 publishProfileInstance.setUserName(userNameAttribute.getValue());
                             }
                             
-                            Attr userPWDAttribute = publishProfilesElement.getAttributeNodeNS("", "userPWD");
+                            Attr userPWDAttribute = publishProfilesElement.getAttributeNodeNS(null, "userPWD");
                             if (userPWDAttribute != null) {
                                 publishProfileInstance.setUserPassword(userPWDAttribute.getValue());
                             }
                             
-                            Attr destinationAppUrlAttribute = publishProfilesElement.getAttributeNodeNS("", "destinationAppUrl");
+                            Attr destinationAppUrlAttribute = publishProfilesElement.getAttributeNodeNS(null, "destinationAppUrl");
                             if (destinationAppUrlAttribute != null) {
                                 publishProfileInstance.setDestinationAppUri(new URI(destinationAppUrlAttribute.getValue()));
                             }
                             
-                            Attr sQLServerDBConnectionStringAttribute = publishProfilesElement.getAttributeNodeNS("", "SQLServerDBConnectionString");
+                            Attr sQLServerDBConnectionStringAttribute = publishProfilesElement.getAttributeNodeNS(null, "SQLServerDBConnectionString");
                             if (sQLServerDBConnectionStringAttribute != null) {
                                 publishProfileInstance.setSqlServerConnectionString(sQLServerDBConnectionStringAttribute.getValue());
                             }
                             
-                            Attr mySQLDBConnectionStringAttribute = publishProfilesElement.getAttributeNodeNS("", "mySQLDBConnectionString");
+                            Attr mySQLDBConnectionStringAttribute = publishProfilesElement.getAttributeNodeNS(null, "mySQLDBConnectionString");
                             if (mySQLDBConnectionStringAttribute != null) {
                                 publishProfileInstance.setMySqlConnectionString(mySQLDBConnectionStringAttribute.getValue());
                             }
                             
-                            Attr hostingProviderForumLinkAttribute = publishProfilesElement.getAttributeNodeNS("", "hostingProviderForumLink");
+                            Attr hostingProviderForumLinkAttribute = publishProfilesElement.getAttributeNodeNS(null, "hostingProviderForumLink");
                             if (hostingProviderForumLinkAttribute != null) {
                                 publishProfileInstance.setHostingProviderForumUri(new URI(hostingProviderForumLinkAttribute.getValue()));
                             }
                             
-                            Attr controlPanelLinkAttribute = publishProfilesElement.getAttributeNodeNS("", "controlPanelLink");
+                            Attr controlPanelLinkAttribute = publishProfilesElement.getAttributeNodeNS(null, "controlPanelLink");
                             if (controlPanelLinkAttribute != null) {
                                 publishProfileInstance.setControlPanelUri(new URI(controlPanelLinkAttribute.getValue()));
                             }
                             
-                            Element databasesSequenceElement = XmlUtility.getElementByTagNameNS(publishProfilesElement, "", "databases");
+                            Element databasesSequenceElement = XmlUtility.getElementByTagNameNS(publishProfilesElement, null, "databases");
                             if (databasesSequenceElement != null) {
-                                for (int i2 = 0; i2 < com.microsoft.windowsazure.core.utils.XmlUtility.getElementsByTagNameNS(databasesSequenceElement, "", "add").size(); i2 = i2 + 1) {
+                                for (int i2 = 0; i2 < com.microsoft.windowsazure.core.utils.XmlUtility.getElementsByTagNameNS(databasesSequenceElement, null, "add").size(); i2 = i2 + 1) {
                                     org.w3c.dom.Element databasesElement = ((org.w3c.dom.Element) com.microsoft.windowsazure.core.utils.XmlUtility.getElementsByTagNameNS(databasesSequenceElement, "", "add").get(i2));
                                     WebSiteGetPublishProfileResponse.Database addInstance = new WebSiteGetPublishProfileResponse.Database();
                                     publishProfileInstance.getDatabases().add(addInstance);
                                     
-                                    Attr nameAttribute = databasesElement.getAttributeNodeNS("", "name");
+                                    Attr nameAttribute = databasesElement.getAttributeNodeNS(null, "name");
                                     if (nameAttribute != null) {
                                         addInstance.setName(nameAttribute.getValue());
                                     }
                                     
-                                    Attr connectionStringAttribute = databasesElement.getAttributeNodeNS("", "connectionString");
+                                    Attr connectionStringAttribute = databasesElement.getAttributeNodeNS(null, "connectionString");
                                     if (connectionStringAttribute != null) {
                                         addInstance.setConnectionString(connectionStringAttribute.getValue());
                                     }
                                     
-                                    Attr providerNameAttribute = databasesElement.getAttributeNodeNS("", "providerName");
+                                    Attr providerNameAttribute = databasesElement.getAttributeNodeNS(null, "providerName");
                                     if (providerNameAttribute != null) {
                                         addInstance.setProviderName(providerNameAttribute.getValue());
                                     }
                                     
-                                    Attr typeAttribute = databasesElement.getAttributeNodeNS("", "type");
+                                    Attr typeAttribute = databasesElement.getAttributeNodeNS(null, "type");
                                     if (typeAttribute != null) {
                                         addInstance.setType(typeAttribute.getValue());
                                     }
