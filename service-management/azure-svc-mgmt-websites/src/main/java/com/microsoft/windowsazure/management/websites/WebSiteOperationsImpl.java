@@ -3506,12 +3506,12 @@ public class WebSiteOperationsImpl implements ServiceOperations<WebSiteManagemen
                         result.setRequestTracingEnabled(requestTracingEnabledInstance);
                     }
                     
-                    JsonNode requestTracingExpirationTimeValue = responseDoc.get("RequestTracingExpirationTime");
+                    /*JsonNode requestTracingExpirationTimeValue = responseDoc.get("RequestTracingExpirationTime");
                     if (requestTracingExpirationTimeValue != null && requestTracingExpirationTimeValue instanceof NullNode == false) {
                         Calendar requestTracingExpirationTimeInstance;
                         requestTracingExpirationTimeInstance = DatatypeConverter.parseDateTime(requestTracingExpirationTimeValue.getTextValue());
                         result.setRequestTracingExpirationTime(requestTracingExpirationTimeInstance);
-                    }
+                    }*/
                     
                     JsonNode scmTypeValue = responseDoc.get("ScmType");
                     if (scmTypeValue != null && scmTypeValue instanceof NullNode == false) {
